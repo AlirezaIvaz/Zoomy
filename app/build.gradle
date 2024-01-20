@@ -3,6 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
+    namespace "com.ablanco.zoomysample"
     defaultConfig {
         applicationId "com.ablanco.zoomysample"
         minSdkVersion rootProject.ext.minSdkVersion

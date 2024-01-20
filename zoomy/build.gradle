@@ -9,6 +9,7 @@ apply from: "${rootDir}/scripts/publish-module.gradle"
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
+    namespace "com.ablanco.zoomy"
 
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion

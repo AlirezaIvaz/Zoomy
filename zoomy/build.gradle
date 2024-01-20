@@ -1,12 +1,12 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdk rootProject.ext.compileSdkVersion
+    compileSdk 27
     namespace "com.ablanco.zoomy"
 
     defaultConfig {
-        minSdk rootProject.ext.minSdkVersion
-        targetSdk rootProject.ext.targetSdkVersion
+        minSdk 16
+        targetSdk 27
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 

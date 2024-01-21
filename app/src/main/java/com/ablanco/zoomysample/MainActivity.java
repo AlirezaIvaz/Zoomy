@@ -12,10 +12,10 @@ import android.view.animation.OvershootInterpolator;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.ablanco.zoomy.DoubleTapListener;
-import com.ablanco.zoomy.LongPressListener;
-import com.ablanco.zoomy.TapListener;
-import com.ablanco.zoomy.Zoomy;
+import ir.alirezaivaz.zoomy.DoubleTapListener;
+import ir.alirezaivaz.zoomy.LongPressListener;
+import ir.alirezaivaz.zoomy.TapListener;
+import ir.alirezaivaz.zoomy.Zoomy;
 
 import java.util.ArrayList;
 import java.util.Arrays;

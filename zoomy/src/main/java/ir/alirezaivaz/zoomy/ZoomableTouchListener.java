@@ -1,4 +1,4 @@
-package com.ablanco.zoomy;
+package ir.alirezaivaz.zoomy;
 
 import android.graphics.Color;
 import android.graphics.Point;

@@ -1,4 +1,4 @@
-package com.ablanco.zoomysample;
+package ir.alirezaivaz.zoomy.sample;
 
 import android.content.Context;
 import android.util.AttributeSet;

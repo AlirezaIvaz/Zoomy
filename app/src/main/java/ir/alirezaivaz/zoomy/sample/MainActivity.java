@@ -1,4 +1,4 @@
-package com.ablanco.zoomysample;
+package ir.alirezaivaz.zoomy.sample;
 
 import android.graphics.Rect;
 import android.os.Bundle;

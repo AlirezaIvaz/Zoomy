@@ -4,9 +4,9 @@ plugins {
 
 android {
     compileSdk 27
-    namespace "com.ablanco.zoomysample"
+    namespace "ir.alirezaivaz.zoomy.sample"
     defaultConfig {
-        applicationId "com.ablanco.zoomysample"
+        applicationId "ir.alirezaivaz.zoomy.sample"
         minSdk 16
         targetSdk 27
         versionCode 1

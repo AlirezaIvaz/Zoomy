@@ -1,122 +1,114 @@
-package ir.alirezaivaz.zoomy;
+package ir.alirezaivaz.zoomy
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.app.DialogFragment;
-import android.view.View;
-import android.view.animation.Interpolator;
+import android.app.Activity
+import android.app.Dialog
+import android.app.DialogFragment
+import android.view.View
+import android.view.animation.Interpolator
 
 /**
  * Created by Álvaro Blanco Cabrero on 12/02/2017.
  * Zoomy.
  */
-
-public class Zoomy {
-
-    private static ZoomyConfig mDefaultConfig = new ZoomyConfig();
-
-    private Zoomy() {
+object Zoomy {
+    private var mDefaultConfig = ZoomyConfig()
+    fun setDefaultConfig(config: ZoomyConfig) {
+        mDefaultConfig = config
     }
 
-    public static void setDefaultConfig(ZoomyConfig config) {
-        mDefaultConfig = config;
+    fun unregister(view: View) {
+        view.setOnTouchListener(null)
     }
 
-    public static void unregister(View view) {
-        view.setOnTouchListener(null);
-    }
+    class Builder {
+        private var mDisposed = false
+        private var mConfig: ZoomyConfig? = null
+        private var mTargetContainer: TargetContainer?
+        private var mTargetView: View? = null
+        private var mZoomListener: ZoomListener? = null
+        private var mZoomInterpolator: Interpolator? = null
+        private var mTapListener: TapListener? = null
+        private var mLongPressListener: LongPressListener? = null
+        private var mdDoubleTapListener: DoubleTapListener? = null
 
-    public static class Builder {
-
-        private boolean mDisposed = false;
-
-        private ZoomyConfig mConfig;
-        private TargetContainer mTargetContainer;
-        private View mTargetView;
-        private ZoomListener mZoomListener;
-        private Interpolator mZoomInterpolator;
-        private TapListener mTapListener;
-        private LongPressListener mLongPressListener;
-        private DoubleTapListener mdDoubleTapListener;
-
-        public Builder(Activity activity) {
-            this.mTargetContainer = new ActivityContainer(activity);
+        constructor(activity: Activity) {
+            mTargetContainer = ActivityContainer(activity)
         }
 
-        public Builder(Dialog dialog) {
-            this.mTargetContainer = new DialogContainer(dialog);
+        constructor(dialog: Dialog) {
+            mTargetContainer = DialogContainer(dialog)
         }
 
-        public Builder(DialogFragment dialogFragment) {
-            this.mTargetContainer = new DialogFragmentContainer(dialogFragment);
+        constructor(dialogFragment: DialogFragment) {
+            mTargetContainer = DialogFragmentContainer(dialogFragment)
         }
 
-        public Builder target(View target) {
-            this.mTargetView = target;
-            return this;
+        fun target(target: View?): Builder {
+            mTargetView = target
+            return this
         }
 
-        public Builder animateZooming(boolean animate) {
-            checkNotDisposed();
-            if (mConfig == null) mConfig = new ZoomyConfig();
-            this.mConfig.setZoomAnimationEnabled(animate);
-            return this;
+        fun animateZooming(animate: Boolean): Builder {
+            checkNotDisposed()
+            if (mConfig == null) mConfig = ZoomyConfig()
+            mConfig!!.isZoomAnimationEnabled = animate
+            return this
         }
 
-        public Builder enableImmersiveMode(boolean enable) {
-            checkNotDisposed();
-            if (mConfig == null) mConfig = new ZoomyConfig();
-            this.mConfig.setImmersiveModeEnabled(enable);
-            return this;
+        fun enableImmersiveMode(enable: Boolean): Builder {
+            checkNotDisposed()
+            if (mConfig == null) mConfig = ZoomyConfig()
+            mConfig!!.isImmersiveModeEnabled = enable
+            return this
         }
 
-        public Builder interpolator(Interpolator interpolator) {
-            checkNotDisposed();
-            this.mZoomInterpolator = interpolator;
-            return this;
+        fun interpolator(interpolator: Interpolator?): Builder {
+            checkNotDisposed()
+            mZoomInterpolator = interpolator
+            return this
         }
 
-        public Builder zoomListener(ZoomListener listener) {
-            checkNotDisposed();
-            this.mZoomListener = listener;
-            return this;
+        fun zoomListener(listener: ZoomListener?): Builder {
+            checkNotDisposed()
+            mZoomListener = listener
+            return this
         }
 
-        public Builder tapListener(TapListener listener) {
-            checkNotDisposed();
-            this.mTapListener = listener;
-            return this;
+        fun tapListener(listener: TapListener?): Builder {
+            checkNotDisposed()
+            mTapListener = listener
+            return this
         }
 
-        public Builder longPressListener(LongPressListener listener) {
-            checkNotDisposed();
-            this.mLongPressListener = listener;
-            return this;
+        fun longPressListener(listener: LongPressListener?): Builder {
+            checkNotDisposed()
+            mLongPressListener = listener
+            return this
         }
 
-
-        public Builder doubleTapListener(DoubleTapListener listener) {
-            checkNotDisposed();
-            this.mdDoubleTapListener = listener;
-            return this;
+        fun doubleTapListener(listener: DoubleTapListener?): Builder {
+            checkNotDisposed()
+            mdDoubleTapListener = listener
+            return this
         }
 
-        public void register() {
-            checkNotDisposed();
-            if (mConfig == null) mConfig = mDefaultConfig;
-            if (mTargetContainer == null)
-                throw new IllegalArgumentException("Target container must not be null");
-            if (mTargetView == null)
-                throw new IllegalArgumentException("Target view must not be null");
-            mTargetView.setOnTouchListener(new ZoomableTouchListener(mTargetContainer, mTargetView,
-                    mConfig, mZoomInterpolator, mZoomListener, mTapListener, mLongPressListener,
-                    mdDoubleTapListener));
-            mDisposed = true;
+        fun register() {
+            checkNotDisposed()
+            if (mConfig == null) mConfig = mDefaultConfig
+            requireNotNull(mTargetContainer) { "Target container must not be null" }
+            requireNotNull(mTargetView) { "Target view must not be null" }
+            mTargetView!!.setOnTouchListener(
+                ZoomableTouchListener(
+                    mTargetContainer!!, mTargetView!!,
+                    mConfig!!, mZoomInterpolator, mZoomListener, mTapListener, mLongPressListener,
+                    mdDoubleTapListener
+                )
+            )
+            mDisposed = true
         }
 
-        private void checkNotDisposed() {
-            if (mDisposed) throw new IllegalStateException("Builder already disposed");
+        private fun checkNotDisposed() {
+            check(!mDisposed) { "Builder already disposed" }
         }
-
     }
 }

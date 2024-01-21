@@ -1,40 +1,40 @@
-package ir.alirezaivaz.zoomy;
+package ir.alirezaivaz.zoomy
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Point;
-import android.graphics.PointF;
-import android.view.View;
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.Point
+import android.graphics.PointF
+import android.view.View
 
 /**
  * Created by Álvaro Blanco Cabrero on 11/02/2017.
  * Zoomy.
  */
-class ViewUtils {
-
-    static Bitmap getBitmapFromView(View view) {
+internal object ViewUtils {
+    @JvmStatic
+    fun getBitmapFromView(view: View): Bitmap {
         //Define a bitmap with the same size as the view
-        Bitmap returnedBitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
+        val returnedBitmap = Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
         //Bind a canvas to it
-        Canvas canvas = new Canvas(returnedBitmap);
+        val canvas = Canvas(returnedBitmap)
         // draw the view on the canvas
-        view.draw(canvas);
+        view.draw(canvas)
         //return the bitmap
-        return returnedBitmap;
+        return returnedBitmap
     }
 
-    static Point getViewAbsoluteCords(View v) {
-        int[] location = new int[2];
-        v.getLocationInWindow(location);
-        int x = location[0];
-        int y = location[1];
-
-        return new Point(x, y);
+    @JvmStatic
+    fun getViewAbsoluteCords(v: View): Point {
+        val location = IntArray(2)
+        v.getLocationInWindow(location)
+        val x = location[0]
+        val y = location[1]
+        return Point(x, y)
     }
 
-    static void viewMidPoint(PointF point, View v) {
-        float x = v.getWidth();
-        float y = v.getHeight();
-        point.set(x / 2, y / 2);
+    fun viewMidPoint(point: PointF, v: View) {
+        val x = v.width.toFloat()
+        val y = v.height.toFloat()
+        point[x / 2] = y / 2
     }
 }

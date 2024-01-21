@@ -2,9 +2,9 @@ package ir.alirezaivaz.zoomy
 
 import android.app.Activity
 import android.app.Dialog
-import android.app.DialogFragment
 import android.view.View
 import android.view.animation.Interpolator
+import androidx.fragment.app.DialogFragment
 
 /**
  * Created by Álvaro Blanco Cabrero on 12/02/2017.

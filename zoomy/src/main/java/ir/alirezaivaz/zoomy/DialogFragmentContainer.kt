@@ -1,6 +1,6 @@
 package ir.alirezaivaz.zoomy
 
-import android.app.DialogFragment
+import androidx.fragment.app.DialogFragment
 
 /**
  * Created by Álvaro Blanco Cabrero on 02/05/2017.

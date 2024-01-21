@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    compileSdk 27
+    compileSdk 34
     namespace "ir.alirezaivaz.zoomy"
 
     defaultConfig {
         minSdk 16
-        targetSdk 27
+        targetSdk 34
     }
     buildTypes {
         release {

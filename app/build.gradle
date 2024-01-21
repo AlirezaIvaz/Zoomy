@@ -3,12 +3,12 @@ plugins {
 }
 
 android {
-    compileSdk 27
+    compileSdk 34
     namespace "ir.alirezaivaz.zoomy.sample"
     defaultConfig {
         applicationId "ir.alirezaivaz.zoomy.sample"
         minSdk 16
-        targetSdk 27
+        targetSdk 34
         versionCode 1
         versionName "1.0"
     }

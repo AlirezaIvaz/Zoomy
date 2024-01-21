@@ -4,7 +4,7 @@ plugins {
 
 android {
     compileSdk 27
-    namespace "com.ablanco.zoomy"
+    namespace "ir.alirezaivaz.zoomy"
 
     defaultConfig {
         minSdk 16

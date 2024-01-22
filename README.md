@@ -9,42 +9,12 @@ Zoomy is an easy to use pinch-to-zoom Android library
 
 ![alt tag](art/zoomy.gif)
 
-## Adding to your project
+## Documentation
 
-### 1. Adding the library repository
-
-If you're using the old project structure, add **JitPack** in your root `build.gradle`
-or `build.gradle.kts` file like this:
-
-<details>
-<summary><code>build.gradle</code></summary>
-
-```groovy
-allprojects {
-    repositories {
-        ...
-        maven {
-            url 'https://jitpack.io'
-        }
-    }
-}
-```
-
-</details>
-
-<details open>
-<summary><code>build.gradle.kts</code></summary>
-
-```kotlin
-allprojects {
-    repositories {
-        ...
-        maven("https://jitpack.io")
-    }
-}
-```
-
-</details>
+- [Home](https://github.com/AlirezaIvaz/Zoomy/wiki)
+- [Installation](https://github.com/AlirezaIvaz/Zoomy/wiki/Installation)
+- [Usage](https://github.com/AlirezaIvaz/Zoomy/wiki/Usage)
+- [Customization](https://github.com/AlirezaIvaz/Zoomy/wiki/Customization)
 
 Otherwise if you're using new project structure, add **JitPack** in your `settings.gradle`
 or `settings.gradle.kts` like this:

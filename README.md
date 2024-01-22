@@ -1,6 +1,10 @@
-![Maven Central](https://img.shields.io/maven-central/v/io.github.imablanco/zoomy)
-
 # Zoomy
+[![JitPack](https://jitpack.io/v/ir.alirezaivaz/zoomy.svg)](https://jitpack.io/#ir.alirezaivaz/zoomy)
+[![Apache2](http://img.shields.io/badge/license-APACHE2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
+[![API 16](https://img.shields.io/badge/Min%20API-16-brightgreen)](https://developer.android.com/about/versions/lollipop)
+[![Kotlin 1.9.22](https://img.shields.io/badge/Kotlin-1.9.22-blueviolet)](https://kotlinlang.org)
+[![Issues](https://img.shields.io/github/issues/AlirezaIvaz/Zoomy)](https://github.com/AlirezaIvaz/Zoomy/issues)
+
 Zoomy is an easy to use pinch-to-zoom Android library
 
 ![alt tag](art/zoomy.gif)

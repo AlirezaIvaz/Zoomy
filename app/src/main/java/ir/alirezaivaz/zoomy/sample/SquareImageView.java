@@ -2,14 +2,15 @@ package ir.alirezaivaz.zoomy.sample;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.widget.ImageView;
+
+import androidx.appcompat.widget.AppCompatImageView;
 
 /**
  * Created by Álvaro Blanco Cabrero on 12/02/2017.
  * Zoomy.
  */
 
-public class SquareImageView extends ImageView{
+public class SquareImageView extends AppCompatImageView {
     public SquareImageView(Context context) {
         super(context);
     }

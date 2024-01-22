@@ -181,7 +181,7 @@ internal class ZoomableTouchListener(
         mScaleFactor *= detector.scaleFactor
 
         // Don't let the object get too large.
-        mScaleFactor = Math.max(MIN_SCALE_FACTOR, Math.min(mScaleFactor, MAX_SCALE_FACTOR))
+        mScaleFactor = MIN_SCALE_FACTOR.coerceAtLeast(mScaleFactor.coerceAtMost(MAX_SCALE_FACTOR))
         mZoomableView!!.scaleX = mScaleFactor
         mZoomableView!!.scaleY = mScaleFactor
         obscureDecorView(mScaleFactor)

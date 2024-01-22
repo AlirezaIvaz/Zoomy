@@ -12,8 +12,10 @@ import ir.alirezaivaz.zoomy.LongPressListener
 import ir.alirezaivaz.zoomy.TapListener
 import ir.alirezaivaz.zoomy.Zoomy
 
-class ImageAdapter(private val activity: Activity, private val images: List<Int>) :
-    RecyclerView.Adapter<ImageAdapter.ImageViewHolder>() {
+class ImageAdapter(
+    private val activity: Activity,
+    private val images: List<Int>
+) : RecyclerView.Adapter<ImageAdapter.ImageViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageViewHolder {
         val imageView: ImageView = SquareImageView(activity)
         imageView.scaleType = ImageView.ScaleType.CENTER_CROP
@@ -53,6 +55,5 @@ class ImageAdapter(private val activity: Activity, private val images: List<Int>
         return images.size
     }
 
-    inner class ImageViewHolder(itemView: View) :
-        RecyclerView.ViewHolder(itemView)
+    inner class ImageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 }

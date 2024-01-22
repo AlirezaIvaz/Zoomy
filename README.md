@@ -92,10 +92,10 @@ First add dependency in your project version catalog like this:
 
 ```toml
 [version]
-numberstoletters = "2.0.1" # You can find the latest version from releases page
+zoomy = "1.0.0" # You can find the latest version from releases page
 
 [libraries]
-numberstoletters = { group = "ir.alirezaivaz", name = "numberstoletters", version.ref = "numberstoletters" }
+zoomy = { group = "ir.alirezaivaz", name = "zoomy", version.ref = "zoomy" }
 ```
 
 </details>
@@ -108,7 +108,7 @@ Then add the library dependency in your application module `build.gradle` or `bu
 ```groovy
 dependencies {
     ...
-    implementation libs.numberstoletters
+    implementation libs.zoomy
 }
 ```
 
@@ -120,7 +120,7 @@ dependencies {
 ```kotlin
 dependencies {
     ...
-    implementation(libs.numberstoletters)
+    implementation(libs.zoomy)
 }
 ```
 
@@ -136,8 +136,8 @@ Just add the library dependency in your application module `build.gradle` or `bu
 ```groovy
 dependencies {
     ...
-    def numbersToLetters = "2.0.1" // You can find the latest version from releases page
-    implementation "ir.alirezaivaz:numberstoletters:$numbersToLetters"
+    def zoomy = "1.0.0" // You can find the latest version from releases page
+    implementation "ir.alirezaivaz:zoomy:$zoomy"
 }
 ```
 
@@ -149,8 +149,8 @@ dependencies {
 ```kotlin
 dependencies {
     ...
-    val numbersToLetters = "2.0.1" // You can find the latest version from releases page
-    implementation("ir.alirezaivaz:numberstoletters:$numbersToLetters")
+    val zoomy = "1.0.0" // You can find the latest version from releases page
+    implementation("ir.alirezaivaz:zoomy:$zoomy")
 }
 ```
 

@@ -1,0 +1,27 @@
+[versions]
+# Plugins
+android = "8.2.1"
+kotlin = "1.9.22"
+# AndroidX
+androidx-annotation = "1.7.1"
+androidx-appcompat = "1.6.1"
+androidx-browser = "1.6.0"
+androidx-fragment = "1.6.2"
+androidx-recyclerview = "1.3.2"
+# Google
+google-material = "1.11.0"
+
+[libraries]
+# AndroidX
+androidx-annotation = { group = "androidx.annotation", name = "annotation", version.ref = "androidx-annotation" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidx-appcompat" }
+androidx-browser = { group = "androidx.browser", name = "browser", version.ref = "androidx-browser" }
+androidx-fragment = { group = "androidx.fragment", name = "fragment", version.ref = "androidx-fragment" }
+androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "androidx-recyclerview" }
+# Google
+google-material = { group = "com.google.android.material", name = "material", version.ref = "google-material" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "android" }
+android-library = { id = "com.android.library", version.ref = "android" }
+android-kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }

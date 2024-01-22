@@ -8,11 +8,153 @@
 Zoomy is an easy to use pinch-to-zoom Android library
 
 ![alt tag](art/zoomy.gif)
-## Installation
 
-```gradle
-implementation 'io.github.imablanco:zoomy:{latest version}'
+## Adding to your project
+
+### 1. Adding the library repository
+
+If you're using the old project structure, add **JitPack** in your root `build.gradle`
+or `build.gradle.kts` file like this:
+
+<details>
+<summary><code>build.gradle</code></summary>
+
+```groovy
+allprojects {
+    repositories {
+        ...
+        maven {
+            url 'https://jitpack.io'
+        }
+    }
+}
 ```
+
+</details>
+
+<details open>
+<summary><code>build.gradle.kts</code></summary>
+
+```kotlin
+allprojects {
+    repositories {
+        ...
+        maven("https://jitpack.io")
+    }
+}
+```
+
+</details>
+
+Otherwise if you're using new project structure, add **JitPack** in your `settings.gradle`
+or `settings.gradle.kts` like this:
+
+<details>
+<summary><code>settings.gradle</code></summary>
+
+```groovy
+dependencyResolutionManagement {
+    ...
+    repositories {
+        ...
+        maven {
+            url 'https://jitpack.io'
+        }
+    }
+}
+```
+
+</details>
+
+<details open>
+<summary><code>settings.gradle.kts</code></summary>
+
+```kotlin
+dependencyResolutionManagement {
+    ...
+    repositories {
+        ...
+        maven("https://jitpack.io")
+    }
+}
+```
+
+</details>
+
+### 2. Adding the library dependency
+
+#### Gradle Version Catalog
+
+First add dependency in your project version catalog like this:
+
+<details open>
+<summary><code>libs.versions.toml</code></summary>
+
+```toml
+[version]
+numberstoletters = "2.0.1" # You can find the latest version from releases page
+
+[libraries]
+numberstoletters = { group = "ir.alirezaivaz", name = "numberstoletters", version.ref = "numberstoletters" }
+```
+
+</details>
+
+Then add the library dependency in your application module `build.gradle` or `build.gradle.kts` file like this:
+
+<details>
+<summary><code>build.gradle</code></summary>
+
+```groovy
+dependencies {
+    ...
+    implementation libs.numberstoletters
+}
+```
+
+</details>
+
+<details open>
+<summary><code>build.gradle.kts</code></summary>
+
+```kotlin
+dependencies {
+    ...
+    implementation(libs.numberstoletters)
+}
+```
+
+</details>
+
+#### Legacy
+
+Just add the library dependency in your application module `build.gradle` or `build.gradle.kts` file like this:
+
+<details>
+<summary><code>build.gradle</code></summary>
+
+```groovy
+dependencies {
+    ...
+    def numbersToLetters = "2.0.1" // You can find the latest version from releases page
+    implementation "ir.alirezaivaz:numberstoletters:$numbersToLetters"
+}
+```
+
+</details>
+
+<details open>
+<summary><code>build.gradle.kts</code></summary>
+
+```kotlin
+dependencies {
+    ...
+    val numbersToLetters = "2.0.1" // You can find the latest version from releases page
+    implementation("ir.alirezaivaz:numberstoletters:$numbersToLetters")
+}
+```
+
+</details>
 
 ## Usage 
 

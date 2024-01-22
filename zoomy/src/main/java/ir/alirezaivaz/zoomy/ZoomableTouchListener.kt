@@ -207,7 +207,7 @@ internal class ZoomableTouchListener(
     private fun obscureDecorView(factor: Float) {
         //normalize value between 0 and 1
         var normalizedValue = (factor - MIN_SCALE_FACTOR) / (MAX_SCALE_FACTOR - MIN_SCALE_FACTOR)
-        normalizedValue = Math.min(0.75f, normalizedValue * 2)
+        normalizedValue = 0.75f.coerceAtMost(normalizedValue * 2)
         val obscure = Color.argb((normalizedValue * 255).toInt(), 0, 0, 0)
         mShadow!!.setBackgroundColor(obscure)
     }

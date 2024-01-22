@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
             R.drawable.img9, R.drawable.img10
         )
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -46,6 +47,7 @@ class MainActivity : AppCompatActivity() {
             R.id.action_github -> {
                 launchUrl("https://github.com/AlirezaIvaz/Zoomy")
             }
+
             R.id.action_issues -> {
                 launchUrl("https://github.com/AlirezaIvaz/Zoomy/issues")
             }

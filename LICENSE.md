@@ -188,6 +188,7 @@ APPENDIX: How to apply the Apache License to your work.
       identification within third-party archives.
 
 Copyright 2017 Álvaro Blanco Cabrero
+
 Copyright 2024 Alireza Ivaz
 
 Licensed under the Apache License, Version 2.0 (the "License");

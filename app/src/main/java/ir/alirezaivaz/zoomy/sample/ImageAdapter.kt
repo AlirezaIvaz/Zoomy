@@ -22,7 +22,7 @@ class ImageAdapter(private val activity: Activity, private val images: List<Int>
 
     override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
         (holder.itemView as ImageView).setImageResource(images[position])
-        holder.itemView.setTag(holder.adapterPosition)
+        holder.itemView.tag = holder.bindingAdapterPosition
         val builder = Zoomy.Builder(activity)
             .target(holder.itemView)
             .interpolator(OvershootInterpolator())

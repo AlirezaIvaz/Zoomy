@@ -83,11 +83,7 @@ internal class ZoomableTouchListener(
     }
 
     override fun onTouch(v: View, ev: MotionEvent): Boolean {
-        // fixed issue for 3 fingers touch
-        if (mAnimatingZoomEnding || ev.pointerCount > 2) {
-            mEndingZoomAction.run()
-            return true
-        }
+        if (mAnimatingZoomEnding || ev.pointerCount > 2) return true
         mScaleGestureDetector.onTouchEvent(ev)
         mGestureDetector.onTouchEvent(ev)
         val action = ev.action and MotionEvent.ACTION_MASK

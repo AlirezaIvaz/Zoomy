@@ -6,5 +6,5 @@ package ir.alirezaivaz.zoomy
  */
 class ZoomyConfig {
     var isZoomAnimationEnabled = true
-    var isImmersiveModeEnabled = true
+    var isImmersiveModeEnabled = false
 }

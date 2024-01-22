@@ -29,23 +29,20 @@ class ImageAdapter(private val activity: Activity, private val images: List<Int>
             .tapListener(object : TapListener {
                 override fun onTap(v: View?) {
                     Toast.makeText(
-                        activity, "Tap on "
-                                + v!!.tag, Toast.LENGTH_SHORT
+                        activity, "Tap on ${v?.tag}", Toast.LENGTH_SHORT
                     ).show()
                 }
             })
             .longPressListener(object : LongPressListener {
                 override fun onLongPress(v: View?) {
                     Toast.makeText(
-                        activity, "Long press on "
-                                + v!!.tag, Toast.LENGTH_SHORT
+                        activity, "Long press on ${v?.tag}", Toast.LENGTH_SHORT
                     ).show()
                 }
             }).doubleTapListener(object : DoubleTapListener {
                 override fun onDoubleTap(v: View?) {
                     Toast.makeText(
-                        activity, "Double tap on "
-                                + v!!.tag, Toast.LENGTH_SHORT
+                        activity, "Double tap on ${v?.tag}", Toast.LENGTH_SHORT
                     ).show()
                 }
             })

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Zoomy</string>
+    <string name="github">Github</string>
+    <string name="issues">Issues</string>
 </resources>

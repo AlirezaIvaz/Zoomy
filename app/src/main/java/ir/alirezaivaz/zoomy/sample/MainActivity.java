@@ -1,7 +1,10 @@
 package ir.alirezaivaz.zoomy.sample;
 
 import android.graphics.Rect;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.OvershootInterpolator;
@@ -10,6 +13,9 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.browser.customtabs.CustomTabColorSchemeParams;
+import androidx.browser.customtabs.CustomTabsIntent;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -44,6 +50,33 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.addItemDecoration(new CommonItemSpaceDecoration(5));
         recyclerView.setAdapter(new Adapter(mImages));
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.action_github) {
+            launchUrl("https://github.com/AlirezaIvaz/Zoomy");
+        } else if (item.getItemId() == R.id.action_issues) {
+            launchUrl("https://github.com/AlirezaIvaz/Zoomy/issues");
+        }
+        return false;
+    }
+
+    private void launchUrl(String url) {
+        CustomTabColorSchemeParams params = new CustomTabColorSchemeParams.Builder()
+                .setToolbarColor(ContextCompat.getColor(MainActivity.this, R.color.github))
+                .build();
+        new CustomTabsIntent.Builder()
+                .setDefaultColorSchemeParams(params)
+                .setShowTitle(true)
+                .build()
+                .launchUrl(MainActivity.this, Uri.parse(url));
     }
 
     class Adapter extends RecyclerView.Adapter<ImageViewHolder> {

@@ -1,5 +1,9 @@
 package ir.alirezaivaz.zoomy
 
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
+import android.animation.ValueAnimator
+import android.animation.ValueAnimator.AnimatorUpdateListener
 import android.graphics.Color
 import android.graphics.Point
 import android.graphics.PointF
@@ -125,13 +129,33 @@ internal class ZoomableTouchListener(
     private fun endZoomingView() {
         if (mConfig.isZoomAnimationEnabled) {
             mAnimatingZoomEnding = true
-            mZoomableView!!.animate()
-                .x(mTargetViewCords.x.toFloat())
-                .y(mTargetViewCords.y.toFloat())
-                .scaleX(1f)
-                .scaleY(1f)
-                .setInterpolator(mEndZoomingInterpolator)
-                .withEndAction(mEndingZoomAction).start()
+            val animator = ValueAnimator.ofFloat(0f, 1f)
+            animator.addUpdateListener(object : AnimatorUpdateListener {
+                var xStart = mZoomableView!!.x
+                var yStart = mZoomableView!!.y
+                var scaleStart = mZoomableView!!.scaleX
+                override fun onAnimationUpdate(animation: ValueAnimator) {
+                    mZoomableView!!.x =
+                        xStart + animation.animatedFraction * (mTargetViewCords.x - xStart)
+                    mZoomableView!!.y =
+                        yStart + animation.animatedFraction * (mTargetViewCords.y - yStart)
+                    mScaleFactor = scaleStart + animation.animatedFraction * (1f - scaleStart)
+                    mZoomableView!!.scaleX = mScaleFactor
+                    mZoomableView!!.scaleY = mScaleFactor
+                    obscureDecorView(if (mScaleFactor >= 1f) mScaleFactor else 1f)
+                }
+            })
+            animator.addListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationCancel(animation: Animator) {
+                    mEndingZoomAction.run()
+                }
+
+                override fun onAnimationEnd(animation: Animator) {
+                    mEndingZoomAction.run()
+                }
+            })
+            animator.interpolator = mEndZoomingInterpolator
+            animator.start()
         } else mEndingZoomAction.run()
     }
 

@@ -11,8 +11,8 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import ir.alirezaivaz.zoomy.sample.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
-    private val mainActivity = this@MainActivity
+class ActivityMain : AppCompatActivity() {
+    private val activityMain = this@ActivityMain
     private val binding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
@@ -31,9 +31,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
         with(binding.recyclerView) {
-            layoutManager = GridLayoutManager(mainActivity, 2)
+            layoutManager = GridLayoutManager(activityMain, 2)
             addItemDecoration(RecyclerSpaceDecoration(5))
-            adapter = ImageAdapter(mainActivity, mImages)
+            adapter = ImageAdapter(activityMain, mImages)
         }
     }
 
@@ -57,13 +57,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun launchUrl(url: String) {
         val params = CustomTabColorSchemeParams.Builder()
-            .setToolbarColor(ContextCompat.getColor(this@MainActivity, R.color.github))
+            .setToolbarColor(ContextCompat.getColor(this@ActivityMain, R.color.github))
             .build()
         CustomTabsIntent.Builder()
             .setDefaultColorSchemeParams(params)
             .setShowTitle(true)
             .build()
-            .launchUrl(this@MainActivity, Uri.parse(url))
+            .launchUrl(this@ActivityMain, Uri.parse(url))
     }
 
 }
